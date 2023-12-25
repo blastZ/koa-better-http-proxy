@@ -1,6 +1,6 @@
 {
   "name": "@blastz/koa-better-http-proxy",
-  "version": "0.2.10",
+  "version": "0.3.0",
   "description": "http proxy middleware for koa",
   "engines": {
     "node": ">=10.0.0"
