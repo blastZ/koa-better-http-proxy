@@ -1,7 +1,5 @@
 'use strict';
 
-var chunkLength = require('../../lib/chunkLength');
-
 function sendProxyRequest(Container) {
   var ctx = Container.user.ctx;
   var bodyContent = Container.proxy.bodyContent;
@@ -11,14 +9,8 @@ function sendProxyRequest(Container) {
   return new Promise(function(resolve, reject) {
     var protocol = Container.proxy.requestModule;
     var proxyReq = protocol.request(reqOpt, function(rsp) {
-      var chunks = [];
-      rsp.on('data', function(chunk) { chunks.push(chunk); });
-      rsp.on('end', function() {
-        Container.proxy.res = rsp;
-        Container.proxy.resData = Buffer.concat(chunks, chunkLength(chunks));
-        resolve(Container);
-      });
-      rsp.on('error', reject);
+      Container.proxy.res = rsp;
+      resolve(Container);
     });
     var abortRequest = function() {
       proxyReq.abort();
