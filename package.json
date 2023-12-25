@@ -1,5 +1,5 @@
 {
-  "name": "koa-better-http-proxy",
+  "name": "@blastz/koa-better-http-proxy",
   "version": "0.2.10",
   "description": "http proxy middleware for koa",
   "engines": {
@@ -29,6 +29,10 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nsimmons/koa-better-http-proxy/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
     "body-parser": "^1.17.1",
